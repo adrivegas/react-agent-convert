@@ -1,16 +1,12 @@
-import React from 'react'
-import { Header } from '../Header'
+import React from 'react';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
 
 export const ConvertScreen = () => {
     return (
         <div>
             <Header />
-
-            <main>
-
-                <h1>contenido</h1>
-
-            </main>          
+            <Footer />                    
 
         </div>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const RegisterScreen = () => {
     return (
@@ -12,7 +12,9 @@ export const RegisterScreen = () => {
                     <input className="input" type="password" placeholder="Contraseña"/>
                     <button className="button">Registrarme</button>
                 </form>
-                <a href="">Iniciar sesión</a>
+                <Link to="/auth/login">
+                    Iniciar sesión
+                </Link>
             </section>
         </section>
     )
