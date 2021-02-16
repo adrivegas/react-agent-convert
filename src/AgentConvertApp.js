@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { AppRouter } from './routers/AppRouter';
 
 export const AgentConvertApp = () => {
     return (
-        <div>
-            <h1>AgentConvertApp</h1>
-        </div>
+        <AppRouter />
     )
 }
