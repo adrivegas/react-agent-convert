@@ -3,29 +3,39 @@ import { Link } from 'react-router-dom';
 import userIcon from '../assets/static/user-icon.png';
 
 export const Header = () => {
-    return (
-   
-        <header className="header"> 
-
-            <Link  to="/auth/login">
-                <img className="header__img" src={userIcon} alt="Agent Convert" />
-            </Link>           
-            
-            <div className="header__menu">
-                <div className="header__menu--profile">
-                    <img src={userIcon} alt="" />
-                    <p>Perfil</p>
-                </div>
+    return (           
+      
+        <header>            
+            <div>
+            {/* <Link  to="/auth/login">
+                <img  src={userIcon} alt="Agent Convert" />
+            </Link> */}
                 <ul>
-                    <li><a href="/">Cuenta</a></li>
                     <li>
+                        <Link to="/auth/login">
+                            Home
+                        </Link>                        
+                    </li>
+                    <li>
+                        <Link to="/auth/login">
+                            Tutoriales
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/auth/login">
+                            Planes
+                        </Link>
+                    </li>
+                    <li  className="active" style={{float: 'right'}}>
                         <Link to="/auth/login">
                             Iniciar Sesión
                         </Link>
                     </li>
                 </ul>
-            </div>
-        </header>    
+           
+            </div> 
+
+        </header> 
     
     )
 }

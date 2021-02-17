@@ -6,7 +6,7 @@ export const ConvertScreen = () => {
     return (
         <div>
             <Header />
-            <Footer />                    
+            <Footer />                  
 
         </div>
     )
