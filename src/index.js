@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AgentConvertApp } from './AgentConvertApp';
+import 'bootswatch/dist/minty/bootstrap.min.css';
 import './styles/styles.scss';
 
 ReactDOM.render(  

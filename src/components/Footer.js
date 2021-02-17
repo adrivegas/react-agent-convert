@@ -3,10 +3,10 @@ import React from 'react';
 export const Footer = () => {
     return (
 
-        <footer className="footer">
-            <a href="/">Terminos de uso</a>
-            <a href="/">Declaración de privacidad</a>
-            <a href="/">Centro de ayuda</a>
+        <footer class="table-dark text-center text-lg-start fixed-bottom">
+            <div class="text-center p-3" >
+                © 2020 Copyright:
+            </div>
         </footer>
         
     )
