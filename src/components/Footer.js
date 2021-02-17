@@ -3,9 +3,9 @@ import React from 'react';
 export const Footer = () => {
     return (
 
-        <footer class="table-dark text-center text-lg-start fixed-bottom">
+        <footer class="table-dark text-center text-lg-start">
             <div class="text-center p-3" >
-                © 2020 Copyright:
+                Producto desarrollado por <strong>Kinetics</strong> - www.kinetics.com.co
             </div>
         </footer>
         
