@@ -12,17 +12,17 @@ export const Header = () => {
             </Link> */}
                 <ul>
                     <li>
-                        <Link to="/auth/login">
+                        <Link to="/">
                             Home
                         </Link>                        
                     </li>
                     <li>
-                        <Link to="/auth/login">
+                        <Link to="/tutoriales">
                             Tutoriales
                         </Link>
                     </li>
                     <li>
-                        <Link to="/auth/login">
+                        <Link to="/planes">
                             Planes
                         </Link>
                     </li>

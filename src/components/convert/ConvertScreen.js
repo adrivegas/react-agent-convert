@@ -5,8 +5,7 @@ import { Header } from '../Header';
 export const ConvertScreen = () => {
     return (
         <div>
-            <Header />
-            <Footer />                  
+            <h1>ConvertScreen Home</h1>                 
 
         </div>
     )
