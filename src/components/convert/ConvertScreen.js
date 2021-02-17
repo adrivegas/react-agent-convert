@@ -1,12 +1,17 @@
 import React from 'react';
-import { Footer } from '../Footer';
-import { Header } from '../Header';
+import { Link } from 'react-router-dom';
+import process from '../../assets/static/process.png';
 
 export const ConvertScreen = () => {
     return (
-        <div>
-            <h1>ConvertScreen Home</h1>                 
+        <section className="container mt-5">
 
-        </div>
+            <h1 class="display-5 text-center">Dialogflow Agent Convert</h1>             
+            <img src={process} class="mx-auto d-block img-fluid mb-5" alt="Process" style={{width:'60%'}}/>
+            <Link to="/planes" class="d-block text-center">
+                <button type="button" class="btn btn-primary btn-lg">Comprar</button>
+            </Link>    
+
+        </section>
     )
 }
