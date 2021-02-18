@@ -1,8 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import kinetics from '../assets/static/kinetics.png';
+import { AuthContext } from '../auth/AuthContext';
+import { types } from '../types/types';
 
 export const Header = () => {
+
+    const { user:{ name }, dispatch } = useContext(AuthContext);
+    const history = useHistory();
+
+    const handleLogout = () => {
+
+        history.replace('/login');
+
+        dispatch({
+            type: types.logout
+        });
+    }
+
     return (          
         
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -14,7 +29,7 @@ export const Header = () => {
                 <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="collapse navbar-collapse" id="navbarColor01">
+            <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ml-auto ">
                     <li className="nav-item">
                         <Link to="/" className="nav-link">
@@ -33,12 +48,29 @@ export const Header = () => {
                     </li>
                     
                 </ul>
-                <span className="navbar-text">
+                {/* <span className="navbar-text">
                     <Link to="/auth/register" className="nav-link">
                         <h4>Registrarse</h4>
                     </Link>
-                </span>
+                </span> */}
             </div>
+
+            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul className="navbar-nav ml-auto">
+
+                    <span className="nav-item nav-link text-info"> 
+                        { name }
+                    </span>
+
+                    <button 
+                        className="nav-item nav-link btn"
+                        onClick={ handleLogout }
+                    > 
+                        Logout
+                    </button>
+                </ul>
+            </div>
+
         </nav>
     
     )

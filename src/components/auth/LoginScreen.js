@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import googleIcon from '../../assets/static/google-icon-color.png';
 import twitterIcon from '../../assets/static/twitter-icon-color.png';
+import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../types/types';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ history }) => {
+
+    const { dispatch } = useContext( AuthContext );
+
+    const handleLogin = () => {
+
+        // const lastPath = localStorage.getItem('lastPath') || '/';
+
+        dispatch({
+            type: types.login,
+            payload: {
+                name: 'Adriana'
+            }
+        });
+
+        history.replace( '/tutoriales' );
+        
+    }
+
     return (
 
         <section className="container">           
@@ -22,7 +42,7 @@ export const LoginScreen = () => {
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña"/>
                             </div> 
                             <div className="text-center">
-                                <button className=" text-center btn btn-primary btn-lg">Iniciar sesión</button>
+                                <button className=" text-center btn btn-primary btn-lg" onClick={ handleLogin }>Iniciar sesión</button>
                             </div>                                                                
                         </fieldset>
                     </form>
