@@ -5,36 +5,36 @@ import kinetics from '../assets/static/kinetics.png';
 export const Header = () => {
     return (          
         
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <Link to="/" class="navbar-brand">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <Link to="/" className="navbar-brand">
                 <img src={kinetics} alt="Logo" style={{width:'40%'}}/>
             </Link>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav ml-auto ">
-                    <li class="nav-item">
-                        <Link to="/" class="nav-link">
+            <div className="collapse navbar-collapse" id="navbarColor01">
+                <ul className="navbar-nav ml-auto ">
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link">
                             Productos
                         </Link>
                     </li>
-                    <li class="nav-item">
-                        <Link to="/tutoriales" class="nav-link">
+                    <li className="nav-item">
+                        <Link to="/tutoriales" className="nav-link">
                             Tutorial
                         </Link>
                     </li>
-                    <li class="nav-item">
-                        <Link to="/planes" class="nav-link">
+                    <li className="nav-item">
+                        <Link to="/planes" className="nav-link">
                             Planes
                         </Link>
                     </li>
                     
                 </ul>
-                <span class="navbar-text">
-                    <Link to="/auth/register" class="nav-link">
+                <span className="navbar-text">
+                    <Link to="/auth/register" className="nav-link">
                             Registrarse
                         </Link>
                 </span>
