@@ -1,29 +1,44 @@
 import React, { useContext } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { login } from '../../actions/auth';
 import googleIcon from '../../assets/static/google-icon-color.png';
 import twitterIcon from '../../assets/static/twitter-icon-color.png';
 import { AuthContext } from '../../auth/AuthContext';
 import { signInWithGoogle } from '../../firebase/firebase-config';
+import { useForm } from '../../hooks/useForm';
 import { types } from '../../types/types';
 
-export const LoginScreen = ({ history }) => {
+export const LoginScreen = () => {
 
-    const { dispatch } = useContext( AuthContext );
+    // const { dispatch } = useContext( AuthContext );
+    const dispatch = useDispatch();
+    
+    const [ formValues, handleInputChange ] = useForm({
+        email: 'adriv@gmail.com',
+        password: '123456'
+    });
 
-    const handleLogin = () => {
+    const { email, password } = formValues;
 
-        const lastPath = localStorage.getItem('lastPath') || '/';
+    const handleLogin = (e) => {
 
-        dispatch({
-            type: types.login,
-            payload: {
-                name: 'Adriana'
-            }
-        });
+        e.preventDefault();
+        dispatch( login( 'email', 1235998 ) );
 
-        history.replace( '/tutoriales' );
+        // const lastPath = localStorage.getItem('lastPath') || '/';
+
+        // dispatch({
+        //     type: types.login,
+        //     payload: {
+        //         name: 'Adriana'
+        //     }
+        // });
+
+        // history.replace( '/tutoriales' );
         
     }
+
 
     return (
 
@@ -31,19 +46,33 @@ export const LoginScreen = ({ history }) => {
 
             <div className="row d-flex justify-content-center m-5">
                 <div  className="col-5 card border-info">
-                    <form className="card-body">
+                    <form className="card-body" onSubmit={ handleLogin }>
                         <fieldset className="">
                             <legend className="text-center">Inicia sesión</legend>                   
                             <div className="form-group">
                                 <label for="exampleInputEmail1">Correo</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="correo@mail.com"/>
+                                <input
+                                    type="email" 
+                                    name="email"
+                                    className="form-control"  
+                                    placeholder="correo@mail.com"
+                                    value={ email }
+                                    onChange={ handleInputChange }
+                                />
                             </div>
                             <div className="form-group">
                                 <label for="exampleInputPassword1">Contraseña</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Contraseña"/>
+                                <input 
+                                    type="password" 
+                                    name="password"
+                                    className="form-control" 
+                                    placeholder="Contraseña"
+                                    value={ password }
+                                    onChange={ handleInputChange }
+                                />
                             </div> 
                             <div className="text-center">
-                                <button className=" text-center btn btn-primary btn-lg" onClick={ handleLogin }>Iniciar sesión</button>
+                                <button className=" text-center btn btn-primary btn-lg">Iniciar sesión</button>
                             </div>                                                                
                         </fieldset>
                     </form>

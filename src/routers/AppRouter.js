@@ -18,7 +18,7 @@ import { AuthRouter } from './AuthRouter';
 
 export const AppRouter = () => {
 
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
     
     return (
         <Router>
@@ -47,7 +47,7 @@ export const AppRouter = () => {
                         exact
                         path="/planes"
                         component={ Planes }
-                        isAuthenticated={ user.logged }
+                        // isAuthenticated={ user.logged }
                     />
 
                     <Redirect to='/auth/login' />  

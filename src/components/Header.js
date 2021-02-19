@@ -7,17 +7,17 @@ import { types } from '../types/types';
 
 export const Header = () => {
 
-    const { user:{ name }, dispatch } = useContext(AuthContext);
-    const history = useHistory();
+    // const { user:{ name }, dispatch } = useContext(AuthContext);
+    // const history = useHistory();
 
-    const handleLogout = () => {
+    // const handleLogout = () => {
 
-        history.replace('/login');
+    //     history.replace('/login');
 
-        dispatch({
-            type: types.logout
-        });
-    }
+    //     dispatch({
+    //         type: types.logout
+    //     });
+    // }
 
     return (          
         
@@ -60,12 +60,12 @@ export const Header = () => {
                 <ul className="navbar-nav ml-auto">
 
                     <span className="nav-item nav-link text-info"> 
-                        { name }
+                        name
                     </span>
 
                     <button 
                         className="nav-item nav-link btn"
-                        onClick={ handleLogout }
+                        
                     > 
                         Login
                     </button>
