@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import googleIcon from '../../assets/static/google-icon-color.png';
 import twitterIcon from '../../assets/static/twitter-icon-color.png';
 import { AuthContext } from '../../auth/AuthContext';
+import { signInWithGoogle } from '../../firebase/firebase-config';
 import { types } from '../../types/types';
 
 export const LoginScreen = ({ history }) => {
@@ -48,7 +49,11 @@ export const LoginScreen = ({ history }) => {
                     </form>
                     
                     <section className="text-center">
-                        <div><img src={googleIcon} className="img-fluid" style={{width:'10%'}}/> Inicia sesión con Google</div>
+                        <div><img src={googleIcon} className="img-fluid" style={{width:'10%'}}/> 
+                            <button className="btn btn-primary btn-lg" onClick={ signInWithGoogle }>
+                            Inicia sesión con Google
+                            </button>
+                        </div>
                         <div><img src={twitterIcon} className="img-fluid" style={{width:'15%'}}/> Inicia sesión con Twitter</div>
                     </section>
                     <p className="text-center">No tienes ninguna cuenta  
