@@ -67,7 +67,7 @@ export const Header = () => {
                         className="nav-item nav-link btn"
                         onClick={ handleLogout }
                     > 
-                        Logout
+                        Login
                     </button>
                 </ul>
             </div>
