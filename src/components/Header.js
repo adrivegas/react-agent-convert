@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import kinetics from './../assets/static/kinetics.png';
+// import kinetics from './../assets/static/kinetics.png';
+import kinetics from './kinetics.png';
 import { AuthContext } from '../auth/AuthContext';
 import { types } from '../types/types';
 
