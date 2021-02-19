@@ -10,9 +10,9 @@ import { ConvertScreen } from '../components/convert/ConvertScreen';
 import { Planes } from '../components/convert/Planes';
 import { Tutoriales } from '../components/convert/Tutoriales';
 import { Footer } from '../components/Footer';
-// import { Header } from '../components/Header';
+import { Header } from '../components/Header';
 import { AuthRouter } from './AuthRouter';
-import { ConvertRoutes } from './ConvertRoutes';
+// import { ConvertRoutes } from './ConvertRoutes';
 // import { PrivateRoute } from './PrivateRoute';
 // import { PublicRoute } from './PublicRoute';
 
@@ -23,47 +23,35 @@ export const AppRouter = () => {
     return (
         <Router>
             <div> 
-                {/* <Header /> */}
+                <Header />
 
                 <Switch>        
-                        <Route 
-                            path="/auth"
-                            component={ AuthRouter }
-                        /> 
                     <Route 
+                        path="/auth"
+                        component={ AuthRouter }
+                    />                     
+
+                    <Route 
+                        exact
                         path="/"
-                        component={ ConvertRoutes }
-                    /> 
+                        component={ ConvertScreen }
+                    />                         
 
-                        {/* <Route 
-                            exact
-                            path="/"
-                            component={ ConvertScreen }
-                        /> 
+                    <Route 
+                        exact
+                        path="/tutoriales"
+                        component={ Tutoriales }
+                    />
 
-                        <Route 
-                            exact
-                            path="/"
-                            component={ ConvertScreen }
-                        /> 
+                    <Route 
+                        exact
+                        path="/planes"
+                        component={ Planes }
+                        isAuthenticated={ user.logged }
+                    />
 
-                        <PrivateRoute 
-                            exact
-                            path="/tutoriales"
-                            component={ Tutoriales }
-                            isAuthenticated={ user.logged }
-                        />
+                    <Redirect to='/auth/login' />  
 
-                        <PublicRoute 
-                            exact
-                            path="/planes"
-                            component={ Planes }
-                            isAuthenticated={ user.logged }
-                        />
-
-                        <Redirect to='/auth/login' />   */}
-                        
-                    <Redirect to='/auth/login' />
           
                 </Switch>
 
