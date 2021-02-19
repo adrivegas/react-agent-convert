@@ -5,28 +5,28 @@ import { types } from '../types/types';
 // import { startLoading, finishLoading } from './ui';
 
 
-// export const startLoginEmailPassword = (email, password) => {
-//     return (dispatch) => {
+export const startLoginEmailPassword = (email, password) => {
+    return (dispatch) => {
 
-//         dispatch( startLoading() );
+        // dispatch( startLoading() );
         
         
-//         firebase.auth().signInWithEmailAndPassword( email, password )
-//             .then( ({ user }) => {
-//                 dispatch(login( user.uid, user.displayName ));
+        // firebase.auth().signInWithEmailAndPassword( email, password )
+        //     .then( ({ user }) => {
+        //         dispatch(login( user.uid, user.displayName ));
 
-//                 dispatch( finishLoading() );
-//             })
-//             .catch( e => {
-//                 console.log(e);
-//                 dispatch( finishLoading() );
-//                 Swal.fire('Error', e.message, 'error');
-//             })
+        //         dispatch( finishLoading() );
+        //     })
+        //     .catch( e => {
+        //         console.log(e);
+        //         dispatch( finishLoading() );
+        //         Swal.fire('Error', e.message, 'error');
+        //     })
 
         
         
-//     }
-// }
+    }
+}
 
 // export const startRegisterWithEmailPasswordName = ( email, password, name ) => {
 //     return ( dispatch ) => {
