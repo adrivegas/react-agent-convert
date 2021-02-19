@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { login, startLoginEmailPassword } from '../../actions/auth';
+import { login, startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 import googleIcon from '../../assets/static/google-icon-color.png';
 import twitterIcon from '../../assets/static/twitter-icon-color.png';
 import { AuthContext } from '../../auth/AuthContext';
@@ -39,6 +39,9 @@ export const LoginScreen = () => {
         
     }
 
+    const handleGoogleLogin = () => {
+        dispatch( startGoogleLogin() );
+    }
 
     return (
 
@@ -78,12 +81,14 @@ export const LoginScreen = () => {
                     </form>
                     
                     <section className="text-center">
-                        <div><img src={googleIcon} className="img-fluid" style={{width:'10%'}}/> 
-                            <button className="btn btn-primary btn-lg" onClick={ signInWithGoogle }>
+                        <div onClick={ handleGoogleLogin }>
+                            <img src={googleIcon} className="img-fluid" style={{width:'10%'}}/> 
                             Inicia sesión con Google
-                            </button>
                         </div>
-                        <div><img src={twitterIcon} className="img-fluid" style={{width:'15%'}}/> Inicia sesión con Twitter</div>
+                        <div>
+                            <img src={twitterIcon} className="img-fluid" style={{width:'15%'}}/>
+                            Inicia sesión con Twitter
+                        </div>
                     </section>
                     <p className="text-center">No tienes ninguna cuenta  
                         <Link to ="/auth/register">
