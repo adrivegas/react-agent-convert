@@ -13,6 +13,7 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { AuthRouter } from './AuthRouter';
 import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 
 export const AppRouter = () => {
 
@@ -40,13 +41,14 @@ export const AppRouter = () => {
                             component={ ConvertScreen }
                         /> 
 
-                        <Route 
+                        <PrivateRoute 
                             exact
                             path="/tutoriales"
                             component={ Tutoriales }
+                            isAuthenticated={ user.logged }
                         />
 
-                        <PrivateRoute 
+                        <PublicRoute 
                             exact
                             path="/planes"
                             component={ Planes }

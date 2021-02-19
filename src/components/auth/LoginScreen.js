@@ -11,7 +11,7 @@ export const LoginScreen = ({ history }) => {
 
     const handleLogin = () => {
 
-        // const lastPath = localStorage.getItem('lastPath') || '/';
+        const lastPath = localStorage.getItem('lastPath') || '/';
 
         dispatch({
             type: types.login,
@@ -33,13 +33,13 @@ export const LoginScreen = ({ history }) => {
                     <form className="card-body">
                         <fieldset className="">
                             <legend className="text-center">Inicia sesión</legend>                   
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="exampleInputEmail1">Correo</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="correo@mail.com"/>
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="correo@mail.com"/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="exampleInputPassword1">Contraseña</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña"/>
+                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Contraseña"/>
                             </div> 
                             <div className="text-center">
                                 <button className=" text-center btn btn-primary btn-lg" onClick={ handleLogin }>Iniciar sesión</button>
