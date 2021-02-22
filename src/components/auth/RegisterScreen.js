@@ -1,9 +1,14 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import validator from 'validator';
+import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 
 export const RegisterScreen = () => {
+
+    const dispatch = useDispatch();
+    const { msgError } = useSelector( state => state.ui );
 
     const [ formValues, handleInputChange ] = useForm({
         name: 'Adriana',
@@ -17,29 +22,28 @@ export const RegisterScreen = () => {
     const handleRegister = (e) => {
         e.preventDefault();
 
-        // if ( isFormValid() ) {
-        //     dispatch( startRegisterWithEmailPasswordName(email, password, name) );
-        // }
-        const isFormValid = () => {
-        
-            if ( name.trim().length === 0 ) {
-                // dispatch( setError('El nombre es requerido') )
-                console.log('El nombre es requerido');
-                return false;
-            } else if ( !validator.isEmail( email ) ) {
-                // dispatch( setError('Correo no válido') )
-                console.log('Correo no válido')
-                return false;
-            } else if ( password !== password2 || password.length < 5 ) {
-                // dispatch( setError('Password should be at least 6 characters and match each other') )
-                console.log('Password should be at least 6 characters and match each other')
-                return false
-            }
-            
-            // dispatch( removeError() );
-            return true;
+        if ( isFormValid() ) {
+            console.log('Formulario correcto')
+            // dispatch( startRegisterWithEmailPasswordName(email, password, name) );
         }
 
+    }
+
+    const isFormValid = () => {
+        
+        if ( name.trim().length === 0 ) {
+            dispatch( setError('El nombre es requerido') )
+            return false;
+        } else if ( !validator.isEmail( email ) ) {
+            dispatch( setError('Correo no válido') )
+            return false;
+        } else if ( password !== password2 || password.length < 5 ) {
+            dispatch( setError('Password should be at least 6 characters and match each other') )
+            return false
+        }
+        
+        dispatch( removeError() );
+        return true;
     }
 
     return (
@@ -48,7 +52,15 @@ export const RegisterScreen = () => {
             <div className="row d-flex justify-content-center m-5">
                 <div  className="col-5 card border-info ">
                     <form className="card-body" onSubmit={ handleRegister }>
-                        <fieldset className="">
+                        {
+                            msgError &&
+                            (
+                                <div className="auth__alert-error">
+                                    { msgError }
+                                </div>
+                            )
+                        }
+                        <fieldset>
                             <legend className="text-center">Regístrate</legend>                    
                             <div className="form-group">
                                 <label for="exampleInputEmail1">Nombre</label>
@@ -95,7 +107,12 @@ export const RegisterScreen = () => {
                                 />
                             </div> 
                             <div className="text-center">
-                                <button className=" text-center btn btn-primary btn-lg">Registrarme</button>
+                                <button 
+                                    className=" text-center btn btn-primary btn-lg"
+                                    type="submit"
+                                >
+                                    Registrarme
+                                </button>
                             </div>                                                                
                         </fieldset>
                     </form>
