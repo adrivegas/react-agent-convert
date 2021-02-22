@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { login, startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 import googleIcon from '../../assets/static/google-icon-color.png';
@@ -13,6 +13,7 @@ export const LoginScreen = () => {
 
     // const { dispatch } = useContext( AuthContext );
     const dispatch = useDispatch();
+    const { loading } = useSelector( state => state.ui );
     
     const [ formValues, handleInputChange ] = useForm({
         email: 'adriv@gmail.com',
@@ -75,7 +76,13 @@ export const LoginScreen = () => {
                                 />
                             </div> 
                             <div className="text-center">
-                                <button className=" text-center btn btn-primary btn-lg">Iniciar sesión</button>
+                                <button 
+                                    type="submit"
+                                    className=" text-center btn btn-primary btn-lg"
+                                    disabled={ loading }
+                                >
+                                    Iniciar sesión
+                                </button>
                             </div>                                                                
                         </fieldset>
                     </form>

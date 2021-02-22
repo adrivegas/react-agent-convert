@@ -63,7 +63,7 @@ export const RegisterScreen = () => {
                         <fieldset>
                             <legend className="text-center">Regístrate</legend>                    
                             <div className="form-group">
-                                <label for="exampleInputEmail1">Nombre</label>
+                                <label>Nombre</label>
                                 <input                                     
                                     className="form-control"                                     
                                     type="text"
@@ -74,18 +74,19 @@ export const RegisterScreen = () => {
                                     onChange={ handleInputChange }
                                 />
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Correo</label>
-                                <input
+                            <div className="form-group">
+                                <label>Correo</label>
+                                <input                                    
+                                    className="form-control" 
                                     type="email" 
-                                    class="form-control" 
                                     placeholder="correo@mail.com"
+                                    autoComplete="off"
                                     value={ email }
                                     onChange={ handleInputChange }
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Ingresa una contraseña</label>
+                                <label>Ingresa una contraseña</label>
                                 <input 
                                     type="password" 
                                     class="form-control" 
@@ -96,7 +97,7 @@ export const RegisterScreen = () => {
                                 />
                             </div> 
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Confirmar contraseña</label>
+                                <label>Confirmar contraseña</label>
                                 <input 
                                     type="password" 
                                     class="form-control" 
