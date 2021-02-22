@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-// import kinetics from './../assets/static/kinetics.png';
-import kinetics from './kinetics.png';
+import kinetics from './../assets/static/kinetics.png';
 import { AuthContext } from '../auth/AuthContext';
 import { types } from '../types/types';
+import { useDispatch } from 'react-redux';
+import { startLogout } from '../actions/auth';
 
 export const Header = () => {
 
@@ -18,6 +19,12 @@ export const Header = () => {
     //         type: types.logout
     //     });
     // }
+
+    const dispatch = useDispatch();
+
+    const hanleLogout = () => {
+        dispatch( startLogout() )
+    }
 
     return (          
         
@@ -65,9 +72,9 @@ export const Header = () => {
 
                     <button 
                         className="nav-item nav-link btn"
-                        
+                        onClick={ hanleLogout }                        
                     > 
-                        Login
+                        Logout
                     </button>
                 </ul>
             </div>

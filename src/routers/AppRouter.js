@@ -82,7 +82,6 @@ export const AppRouter = () => {
 
                     <Redirect to='/auth/login' />  
 
-          
                 </Switch>
 
                 <Footer/>           
