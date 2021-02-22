@@ -1,18 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { login, startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
+import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 import googleIcon from '../../assets/static/google-icon-color.png';
-import twitterIcon from '../../assets/static/twitter-icon-color.png';
-import { AuthContext } from '../../auth/AuthContext';
-import { signInWithGoogle } from '../../firebase/firebase-config';
+// import twitterIcon from '../../assets/static/twitter-icon-color.png';
 import { useForm } from '../../hooks/useForm';
-import { types } from '../../types/types';
-import { Sidebar } from '../public/Sidebar';
 
 export const LoginScreen = () => {
 
-    // const { dispatch } = useContext( AuthContext );
     const dispatch = useDispatch();
     const { loading } = useSelector( state => state.ui );
     
@@ -27,17 +22,6 @@ export const LoginScreen = () => {
 
         e.preventDefault();
         dispatch( startLoginEmailPassword( email, password ) );
-
-        // const lastPath = localStorage.getItem('lastPath') || '/';
-
-        // dispatch({
-        //     type: types.login,
-        //     payload: {
-        //         name: 'Adriana'
-        //     }
-        // });
-
-        // history.replace( '/tutoriales' );
         
     }
 
@@ -48,7 +32,6 @@ export const LoginScreen = () => {
     return (
 
         <section className="container">    
-        {/* <Sidebar />        */}
 
             <div className="row d-flex justify-content-center m-5">
                 <div  className="col-5 card border-info">

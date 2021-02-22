@@ -78,7 +78,7 @@ export const RegisterScreen = () => {
                                 <label>Correo</label>
                                 <input                                    
                                     className="form-control" 
-                                    type="email" 
+                                    type="text" 
                                     placeholder="correo@mail.com"
                                     autoComplete="off"
                                     value={ email }

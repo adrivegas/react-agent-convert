@@ -41,11 +41,5 @@ export const AuthRouter = () => {
                 </Switch> 
             </div>
         </Router>
-        
-        
-            
-                
-            
-     
     )
 }

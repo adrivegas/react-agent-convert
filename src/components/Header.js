@@ -1,31 +1,15 @@
-import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import kinetics from './../assets/static/kinetics.png';
-import { AuthContext } from '../auth/AuthContext';
-import { types } from '../types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
 export const Header = () => {
 
-    // const { user:{ name }, dispatch } = useContext(AuthContext);
-    // const history = useHistory();
-
-    // const handleLogout = () => {
-
-    //     history.replace('/login');
-
-    //     dispatch({
-    //         type: types.logout
-    //     });
-    // }
-
     const dispatch = useDispatch();
     const { name } = useSelector(state => state.auth);
-    console.log(name)
 
     const hanleLogout = () => {
-        // history.replace('/login');
         dispatch( startLogout() )
     }
 
@@ -41,34 +25,17 @@ export const Header = () => {
             </button>
 
             <div className="collapse navbar-collapse">
-                <ul className="navbar-nav ml-auto ">
-                    {/* <li className="nav-item">
-                        <Link to="/productos" className="nav-link">
-                            <h4>Productos</h4>                            
-                        </Link>
-                    </li> */}
+                <ul className="navbar-nav ml-auto ">                    
                     <li className="nav-item">
                         <Link to="/tutoriales" className="nav-link">
                             <h4>Tutoriales</h4>
                         </Link>
-                    </li>
-                    {/* <li className="nav-item">
-                        <Link to="/planes" className="nav-link">
-                            <h4>Planes</h4>
-                        </Link>
-                    </li> */}
-                    
-                </ul>
-                {/* <span className="navbar-text">
-                    <Link to="/auth/register" className="nav-link">
-                        <h4>Registrarse</h4>
-                    </Link>
-                </span> */}
+                    </li>                   
+                </ul>                
             </div>
 
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul className="navbar-nav ml-auto">
-
                     <span className="nav-item nav-link text-info"> 
                         { name }
                     </span>

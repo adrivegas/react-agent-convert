@@ -2,19 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import kinetics from './../../assets/static/kinetics.png';
 
-import { useDispatch } from 'react-redux'
-
-// import { JournalEntries } from './JournalEntries'
-import { startLogout } from '../../actions/auth';
-
-
 export const Sidebar = () => {
-
-    // const dispatch = useDispatch();
-
-    // const hanleLogout = () => {
-    //     dispatch( startLogout() )
-    // }
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -32,33 +20,18 @@ export const Sidebar = () => {
                         <Link to="/auth/home" className="nav-link">
                             <h4>Home</h4>                            
                         </Link>
-                    </li>
-                    {/* <li className="nav-item">
-                        <Link to="/tutoriales" className="nav-link">
-                            <h4>Tutorial</h4>
-                        </Link>
-                    </li> */}
+                    </li>                   
                     <li className="nav-item">
                         <Link to="/auth/planes" className="nav-link">
                             <h4>Planes</h4>
                         </Link>
                     </li>
                     
-                </ul>
-                {/* <span className="navbar-text">
-                    <Link to="/auth/register" className="nav-link">
-                        <h4>Registrarse</h4>
-                    </Link>
-                </span> */}
+                </ul>               
             </div>
 
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul className="navbar-nav ml-auto">
-
-                    {/* <span className="nav-item nav-link text-info"> 
-                        name
-                    </span> */}
-
+                <ul className="navbar-nav ml-auto">                   
                     <button 
                         className="nav-item nav-link btn"
                     > 
@@ -68,7 +41,6 @@ export const Sidebar = () => {
                     </button>
                 </ul>
             </div>
-
         </nav>
     )
 }
