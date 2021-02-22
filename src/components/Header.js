@@ -23,6 +23,7 @@ export const Header = () => {
     const dispatch = useDispatch();
 
     const hanleLogout = () => {
+        // history.replace('/login');
         dispatch( startLogout() )
     }
 
@@ -40,7 +41,7 @@ export const Header = () => {
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ml-auto ">
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">
+                        <Link to="/productos" className="nav-link">
                             <h4>Productos</h4>                            
                         </Link>
                     </li>

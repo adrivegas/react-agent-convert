@@ -1,18 +1,56 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import process from '../../assets/static/process.png';
+import { PublicScreen } from '../Public/PublicScreen';
+import { Header } from '../Header';
+import { Planes } from './Planes';
+import { Sidebar } from '../Public/Sidebar';
+import { Tutoriales } from './Tutoriales';
 
 export const ConvertScreen = () => {
     return (
-        <section className="container mt-5 pb-5">
+        
+        <Router>
+            <div> 
+                <Header />
 
-            <h1 class="display-5 text-center pb-2">Dialogflow Agent Converter</h1>
-            <p class="text-center">Automatiza las tareas de carga manual de información a tus agentes Dialogflow. Esta aplicación te permite generar la estructura completa de tua agente .ZIP compatible con Dialogflow con tan sólo cargar un archivo .CSV</p>             
-            <img src={process} class="mx-auto d-block img-fluid mb-5" alt="Process" style={{width:'60%'}}/>
-            <Link to="/planes" class="d-block text-center">
-                <button type="button" class="btn btn-primary btn-lg">Ver planes</button>
-            </Link>    
+                <Switch>        
+                    {/* <Route 
+                        path="/auth"
+                        component={ AuthRouter }
+                    />                      */}
 
-        </section>
+                    {/* <Route 
+                        exact
+                        path="/"
+                        component={ ConvertScreen }
+                    />                          */}
+
+                    <Route 
+                        exact
+                        path="/productos"
+                        component={ PublicScreen }
+                    />
+                    
+                    <Route 
+                        exact
+                        path="/tutoriales"
+                        component={ Tutoriales }
+                    />
+
+                    <Route 
+                        exact
+                        path="/planes"
+                        component={ Planes }
+                    />
+
+                    {/* <Redirect to='/auth/login' />   */}
+
+          
+                </Switch>
+
+                {/* <Footer/>            */}
+            </div>
+        </Router>
     )
 }

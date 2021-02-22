@@ -10,18 +10,18 @@ export const PrivateRoute = ({
     ...rest
 }) => {
 
-    localStorage.setItem('lastPath', rest.location.pathname);
+    // localStorage.setItem('lastPath', rest.location.pathname);
 
-    console.log(rest)
-    console.log('Adrrriririri')
+    // console.log(rest)
+    // console.log('Adrrriririri')
 
 
     return (
         <Route { ...rest }
             component={ (props) => (
                 ( isAuthenticated )
-                    ? ( <Redirect to="/auth/login" /> )
-                    : ( <Component { ...props } /> )
+                    ? ( <Component { ...props } /> )
+                    : ( <Redirect to="/auth/login" /> )
             )}
         
         />

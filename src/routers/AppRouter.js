@@ -53,7 +53,7 @@ export const AppRouter = () => {
     return (
         <Router>
             <div> 
-                <Header />
+                {/* <Header /> */}
 
                 <Switch>        
                     <PublicRoute 
@@ -62,25 +62,25 @@ export const AppRouter = () => {
                         isAuthenticated={ isLoggedIn }
                     />                     
 
-                    <Route 
+                    {/* <Route 
                         exact
                         path="/"
                         component={ ConvertScreen }
-                    />                         
+                    />                          */}
 
                     <PrivateRoute 
                         exact
-                        path="/tutoriales"
                         isAuthenticated={ isLoggedIn }
-                        component={ Tutoriales }
+                        path="/"                        
+                        component={ ConvertScreen }
                     />
 
-                    <Route 
+                    {/* <Route 
                         exact
                         path="/planes"
                         component={ Planes }
-                        // isAuthenticated={ user.logged }
-                    />
+                        isAuthenticated={ user.logged }
+                    /> */}
 
                     <Redirect to='/auth/login' />  
 

@@ -8,6 +8,7 @@ import { AuthContext } from '../../auth/AuthContext';
 import { signInWithGoogle } from '../../firebase/firebase-config';
 import { useForm } from '../../hooks/useForm';
 import { types } from '../../types/types';
+import { Sidebar } from '../Public/Sidebar';
 
 export const LoginScreen = () => {
 
@@ -46,7 +47,8 @@ export const LoginScreen = () => {
 
     return (
 
-        <section className="container">           
+        <section className="container">    
+        <Sidebar />       
 
             <div className="row d-flex justify-content-center m-5">
                 <div  className="col-5 card border-info">
@@ -92,10 +94,10 @@ export const LoginScreen = () => {
                             <img src={googleIcon} className="img-fluid" style={{width:'10%'}}/> 
                             Inicia sesión con Google
                         </div>
-                        <div>
+                        {/* <div>
                             <img src={twitterIcon} className="img-fluid" style={{width:'15%'}}/>
                             Inicia sesión con Twitter
-                        </div>
+                        </div> */}
                     </section>
                     <p className="text-center">No tienes ninguna cuenta  
                         <Link to ="/auth/register">
