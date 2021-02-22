@@ -16,8 +16,8 @@ import { Header } from '../components/Header';
 import { firebase } from '../firebase/firebase-config';
 import { AuthRouter } from './AuthRouter';
 // import { ConvertRoutes } from './ConvertRoutes';
-// import { PrivateRoute } from './PrivateRoute';
-// import { PublicRoute } from './PublicRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 
 export const AppRouter = () => {
 
@@ -56,9 +56,10 @@ export const AppRouter = () => {
                 <Header />
 
                 <Switch>        
-                    <Route 
+                    <PublicRoute 
                         path="/auth"
                         component={ AuthRouter }
+                        isAuthenticated={ isLoggedIn }
                     />                     
 
                     <Route 
@@ -67,9 +68,10 @@ export const AppRouter = () => {
                         component={ ConvertScreen }
                     />                         
 
-                    <Route 
+                    <PrivateRoute 
                         exact
                         path="/tutoriales"
+                        isAuthenticated={ isLoggedIn }
                         component={ Tutoriales }
                     />
 
