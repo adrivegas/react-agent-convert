@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import kinetics from './../assets/static/kinetics.png';
 import { AuthContext } from '../auth/AuthContext';
 import { types } from '../types/types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
 export const Header = () => {
@@ -21,6 +21,8 @@ export const Header = () => {
     // }
 
     const dispatch = useDispatch();
+    const { name } = useSelector(state => state.auth);
+    console.log(name)
 
     const hanleLogout = () => {
         // history.replace('/login');
@@ -68,14 +70,14 @@ export const Header = () => {
                 <ul className="navbar-nav ml-auto">
 
                     <span className="nav-item nav-link text-info"> 
-                        name
+                        { name }
                     </span>
 
                     <button 
                         className="nav-item nav-link btn"
                         onClick={ hanleLogout }                        
                     > 
-                        Logout
+                        <h5>Logout</h5>
                     </button>
                 </ul>
             </div>
