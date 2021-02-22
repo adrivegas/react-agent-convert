@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import process from '../../assets/static/process.png';
-import { PublicScreen } from '../Public/PublicScreen';
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import { PublicScreen } from '../public/PublicScreen';
 import { Header } from '../Header';
 import { Planes } from './Planes';
-import { Sidebar } from '../Public/Sidebar';
 import { Tutoriales } from './Tutoriales';
+import { HomeScreen } from '../public/HomeScreen';
 
 export const ConvertScreen = () => {
     return (
-        
         <Router>
             <div> 
                 <Header />
@@ -26,11 +24,11 @@ export const ConvertScreen = () => {
                         component={ ConvertScreen }
                     />                          */}
 
-                    <Route 
+                    {/* <Route 
                         exact
-                        path="/productos"
-                        component={ PublicScreen }
-                    />
+                        path="/home"
+                        component={ HomeScreen }
+                    /> */}
                     
                     <Route 
                         exact
@@ -38,13 +36,13 @@ export const ConvertScreen = () => {
                         component={ Tutoriales }
                     />
 
-                    <Route 
+                    {/* <Route 
                         exact
                         path="/planes"
                         component={ Planes }
-                    />
+                    /> */}
 
-                    {/* <Redirect to='/auth/login' />   */}
+                    <Redirect to='/tutoriales' />  
 
           
                 </Switch>

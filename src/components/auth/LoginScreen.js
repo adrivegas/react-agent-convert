@@ -8,7 +8,7 @@ import { AuthContext } from '../../auth/AuthContext';
 import { signInWithGoogle } from '../../firebase/firebase-config';
 import { useForm } from '../../hooks/useForm';
 import { types } from '../../types/types';
-import { Sidebar } from '../Public/Sidebar';
+import { Sidebar } from '../public/Sidebar';
 
 export const LoginScreen = () => {
 
@@ -48,7 +48,7 @@ export const LoginScreen = () => {
     return (
 
         <section className="container">    
-        <Sidebar />       
+        {/* <Sidebar />        */}
 
             <div className="row d-flex justify-content-center m-5">
                 <div  className="col-5 card border-info">

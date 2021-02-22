@@ -30,7 +30,7 @@ export const Header = () => {
     return (          
         
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <Link to="/" className="navbar-brand">
+            <Link to="/home" className="navbar-brand">
                 <img src={kinetics} alt="Logo" style={{width:'40%'}}/>
             </Link>
 
@@ -40,21 +40,21 @@ export const Header = () => {
 
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ml-auto ">
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link to="/productos" className="nav-link">
                             <h4>Productos</h4>                            
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link to="/tutoriales" className="nav-link">
-                            <h4>Tutorial</h4>
+                            <h4>Tutoriales</h4>
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link to="/planes" className="nav-link">
                             <h4>Planes</h4>
                         </Link>
-                    </li>
+                    </li> */}
                     
                 </ul>
                 {/* <span className="navbar-text">

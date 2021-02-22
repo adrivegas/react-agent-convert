@@ -1,13 +1,17 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import { LoginScreen } from '../components/auth/LoginScreen';
 import { RegisterScreen } from '../components/auth/RegisterScreen';
+import { Planes } from '../components/convert/Planes';
+import { HomeScreen } from '../components/public/HomeScreen';
+import { Sidebar } from '../components/public/Sidebar';
 
 export const AuthRouter = () => {
     return (
-        <div className='auth__main'>
         
-            <div className='auth__box-container'>
+        <Router>
+            <div>
+                <Sidebar />
                 <Switch>
                     <Route 
                         exact
@@ -19,13 +23,29 @@ export const AuthRouter = () => {
                         exact
                         path="/auth/register"
                         component={ RegisterScreen }
-                    />   
+                    /> 
 
-                    <Redirect to='/auth/login' />         
+                    <Route 
+                        exact
+                        path="/auth/planes"
+                        component={ Planes }
+                    />
+
+                    <Route 
+                        exact
+                        path="/auth/home"
+                        component={ HomeScreen }
+                    />  
+
+                    <Redirect to='/auth/home' />         
                 </Switch> 
             </div>
+        </Router>
+        
+        
+            
                 
             
-        </div>
+     
     )
 }
