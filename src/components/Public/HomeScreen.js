@@ -12,11 +12,9 @@ export const HomeScreen = () => {
                     <img src={process} className="mx-auto d-block img-fluid mb-5" alt="Process" style={{width:'60%'}}/>
                     <Link to="/auth/planes" className="d-block text-center">
                         <button type="button" className="btn btn-primary btn-lg">Ver planes</button>
-                    </Link>                    
-                                  
+                    </Link>  
                 </div>
             </div>
         </section>
     )
-    // overflow-auto
 }

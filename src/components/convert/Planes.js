@@ -41,9 +41,10 @@ export const Planes = () => {
                             <button type="button" class="btn btn-primary">Obtener plan</button>
                         </Link>
                     </div>
-                </div>
+                </div>               
 
             </div>
+            
         </section>
         
     )
