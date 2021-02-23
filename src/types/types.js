@@ -10,4 +10,5 @@ export const types = {
 
     acFileUpload: '[AC] File Upload',
     acFileDownload: '[AC] File Download',
+    acFileError: '[AC] File Error',
 }
