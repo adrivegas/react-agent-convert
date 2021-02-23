@@ -7,4 +7,7 @@ export const types = {
 
     uiStartLoading: '[UI] Start loading',
     uiFinishLoading: '[UI] Finish loading',
+
+    acFileUpload: '[AC] File Upload',
+    acFileDownload: '[AC] File Download',
 }
