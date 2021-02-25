@@ -28,7 +28,7 @@ export const Header = () => {
                 <ul className="navbar-nav ml-auto ">                    
                     <li className="nav-item">
                         <Link to="/tutoriales" className="nav-link">
-                            <h4>Tutoriales</h4>
+                            {/* <h4>Tutoriales</h4> */}
                         </Link>
                     </li>                   
                 </ul>                

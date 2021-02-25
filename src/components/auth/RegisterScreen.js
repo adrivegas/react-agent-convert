@@ -47,7 +47,7 @@ export const RegisterScreen = () => {
     }
 
     return (
-        <section className="container">           
+        <section className="container margin">           
 
             <div className="row d-flex justify-content-center m-5">
                 <div  className="col-5 card border-info ">
