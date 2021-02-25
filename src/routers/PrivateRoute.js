@@ -10,10 +10,10 @@ export const PrivateRoute = ({
     ...rest
 }) => {
 
-    localStorage.setItem('lastPath', rest.location.pathname);
+    // localStorage.setItem('lastPath', rest.location.pathname);
 
-    console.log(rest)
-    console.log('Adrrriririri')
+    // console.log(rest)
+    // console.log('Adrrriririri')
 
 
     return (

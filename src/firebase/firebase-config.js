@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-// import 'firebase/firestore';
+import 'firebase/firestore';
 import 'firebase/auth';
 import dotenv from 'dotenv';
 dotenv.config()
@@ -17,23 +17,23 @@ firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
 
-const googleProvider = new firebase.auth.GoogleAuthProvider()
+// const googleProvider = new firebase.auth.GoogleAuthProvider()
 
-export const signInWithGoogle = () => {
-    auth.signInWithPopup(googleProvider).then((res) => {
-        // user object
-        console.log(res.user)
-    }).catch((error) => {
-        console.log(error.message)
-    })
-}
+const db = firebase.firestore();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-// const db = firebase.firestore();
-// const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+export {
+    db,
+    googleAuthProvider,
+    firebase
+} 
+
+// export const signInWithGoogle = () => {
+//     auth.signInWithPopup(googleProvider).then((res) => {
+//         console.log(res.user)
+//     }).catch((error) => {
+//         console.log(error.message)
+//     })
+// }
 
 
-// export {
-//     db,
-//     googleAuthProvider,
-//     firebase
-// } 

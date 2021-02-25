@@ -1,60 +1,86 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 import googleIcon from '../../assets/static/google-icon-color.png';
-import twitterIcon from '../../assets/static/twitter-icon-color.png';
-import { AuthContext } from '../../auth/AuthContext';
-import { signInWithGoogle } from '../../firebase/firebase-config';
-import { types } from '../../types/types';
+// import twitterIcon from '../../assets/static/twitter-icon-color.png';
+import { useForm } from '../../hooks/useForm';
 
-export const LoginScreen = ({ history }) => {
+export const LoginScreen = () => {
 
-    const { dispatch } = useContext( AuthContext );
+    const dispatch = useDispatch();
+    const { loading } = useSelector( state => state.ui );
+    
+    const [ formValues, handleInputChange ] = useForm({
+        email: 'adri@gmail.com',
+        password: '123456'
+    });
 
-    const handleLogin = () => {
+    const { email, password } = formValues;
 
-        const lastPath = localStorage.getItem('lastPath') || '/';
+    const handleLogin = (e) => {
 
-        dispatch({
-            type: types.login,
-            payload: {
-                name: 'Adriana'
-            }
-        });
-
-        history.replace( '/tutoriales' );
+        e.preventDefault();
+        dispatch( startLoginEmailPassword( email, password ) );
         
+    }
+
+    const handleGoogleLogin = () => {
+        dispatch( startGoogleLogin() );
     }
 
     return (
 
-        <section className="container">           
+        <section className="container">    
 
             <div className="row d-flex justify-content-center m-5">
                 <div  className="col-5 card border-info">
-                    <form className="card-body">
+                    <form className="card-body" onSubmit={ handleLogin }>
                         <fieldset className="">
                             <legend className="text-center">Inicia sesión</legend>                   
                             <div className="form-group">
                                 <label for="exampleInputEmail1">Correo</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="correo@mail.com"/>
+                                <input
+                                    type="email" 
+                                    name="email"
+                                    className="form-control"  
+                                    placeholder="correo@mail.com"
+                                    value={ email }
+                                    onChange={ handleInputChange }
+                                />
                             </div>
                             <div className="form-group">
                                 <label for="exampleInputPassword1">Contraseña</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Contraseña"/>
+                                <input 
+                                    type="password" 
+                                    name="password"
+                                    className="form-control" 
+                                    placeholder="Contraseña"
+                                    value={ password }
+                                    onChange={ handleInputChange }
+                                />
                             </div> 
                             <div className="text-center">
-                                <button className=" text-center btn btn-primary btn-lg" onClick={ handleLogin }>Iniciar sesión</button>
+                                <button 
+                                    type="submit"
+                                    className=" text-center btn btn-primary btn-lg"
+                                    disabled={ loading }
+                                >
+                                    Iniciar sesión
+                                </button>
                             </div>                                                                
                         </fieldset>
                     </form>
                     
                     <section className="text-center">
-                        <div><img src={googleIcon} className="img-fluid" style={{width:'10%'}}/> 
-                            <button className="btn btn-primary btn-lg" onClick={ signInWithGoogle }>
+                        <div onClick={ handleGoogleLogin }>
+                            <img src={googleIcon} className="img-fluid" style={{width:'10%'}}/> 
                             Inicia sesión con Google
-                            </button>
                         </div>
-                        <div><img src={twitterIcon} className="img-fluid" style={{width:'15%'}}/> Inicia sesión con Twitter</div>
+                        {/* <div>
+                            <img src={twitterIcon} className="img-fluid" style={{width:'15%'}}/>
+                            Inicia sesión con Twitter
+                        </div> */}
                     </section>
                     <p className="text-center">No tienes ninguna cuenta  
                         <Link to ="/auth/register">

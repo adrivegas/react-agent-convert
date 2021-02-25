@@ -1,22 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import kinetics from './../assets/static/kinetics.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { startLogout } from '../actions/auth';
+import kinetics from './../../assets/static/kinetics.png';
 
-export const Header = () => {
+export const Sidebar = () => {
 
-    const dispatch = useDispatch();
-    const { name } = useSelector(state => state.auth);
-
-    const hanleLogout = () => {
-        dispatch( startLogout() )
-    }
-
-    return (          
-        
+    return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <Link to="/home" className="navbar-brand">
+            <Link to="/" className="navbar-brand">
                 <img src={kinetics} alt="Logo" style={{width:'40%'}}/>
             </Link>
 
@@ -25,33 +15,32 @@ export const Header = () => {
             </button>
 
             <div className="collapse navbar-collapse">
-                <ul className="navbar-nav ml-auto ">                    
+                <ul className="navbar-nav ml-auto ">
                     <li className="nav-item">
-                        <Link to="/tutoriales" className="nav-link">
-                            {/* <h4>Tutoriales</h4> */}
+                        <Link to="/auth/home" className="nav-link">
+                            <h4>Home</h4>                            
                         </Link>
                     </li>                   
-                </ul>                
+                    <li className="nav-item">
+                        <Link to="/auth/planes" className="nav-link">
+                            <h4>Planes</h4>
+                        </Link>
+                    </li>
+                    
+                </ul>               
             </div>
 
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul className="navbar-nav ml-auto">
-                    <span className="nav-item nav-link text-info"> 
-                        { name }
-                    </span>
-
+                <ul className="navbar-nav ml-auto">                   
                     <button 
                         className="nav-item nav-link btn"
-                        onClick={ hanleLogout }                        
                     > 
-                        <h5>Logout</h5>
+                        <Link to="/auth/login" className="nav-link">
+                            <h4>Login</h4>
+                        </Link>                        
                     </button>
                 </ul>
             </div>
-
         </nav>
-    
     )
 }
-
-
