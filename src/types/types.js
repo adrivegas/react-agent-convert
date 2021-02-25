@@ -8,7 +8,11 @@ export const types = {
     uiStartLoading: '[UI] Start loading',
     uiFinishLoading: '[UI] Finish loading',
 
-    acFileUpload: '[AC] File Upload',
+    acSetUploadFile: '[AC] Upload File',
+    acSetUploadProgress: '[AC] Set Upload Progress',
+    acSuccessUploadFile: '[AC] Success Upload File',
+    acFailureUploadFile: '[AC] Failure Upload File',
+
     acFileDownload: '[AC] File Download',
     acFileError: '[AC] File Error',
 }
