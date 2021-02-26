@@ -93,13 +93,13 @@ export const UploadFile = () => {
                                     Cargar archivo 1
                                 </button>
 
-                                <div>
+                                {/* <div>
                                     <span>
                                         {stateFile.uploadSuccess
                                             ? "Archivo cargado con éxito!"
                                             : ""}
                                     </span>
-                                </div>
+                                </div> */}
                             </div>                           
 
                         </div>
@@ -120,13 +120,13 @@ export const UploadFile = () => {
                                     Cargar archivo 2
                                 </button>
 
-                                <div>
+                                {/* <div>
                                     <span>
                                         {stateFile.uploadSuccess
                                             ? "Archivo cargado con éxito!"
                                             : ""}
                                     </span>
-                                </div>
+                                </div> */}
                             </div>
                             
 
